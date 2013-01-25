@@ -4451,34 +4451,6 @@
 
     <string name="lock_screen_title">Lock screen</string>
 
-    <!-- Navigation Bar  -->
-    <string name="navigation_bar_title">Navigation Bar Effects</string>
-    <string name="navigation_bar_title2">Navigation Bar Buttons</string>
-    <string name="navigation_bar_tint_title">Navigation bar color</string>
-    <string name="navigation_bar_glow_tint_title">Navigation bar glow color</string>
-    <string name="glow_times_fast">Fast</string>
-    <string name="glow_times_normal">Normal</string>
-    <string name="glow_times_slow">Slow</string>
-    <string name="navigation_bar_glow_tint_summary">When you press on a button, there is a glow. Use this to change the color of the glow.</string>
-    <string name="glow_times_off">Off</string>
-    <string name="glow_times_title">Button glow animation</string>
-    <string name="button_transparency_title">Button transparency</string>
-
-    <!-- Navigation Height/Width Settings -->
-    <string name="navbar_header">NavigationBar</string>
-    <string name="navbar_header_summary">Height/Width</string>
-    <string name="navbar_enable_bar">Enable bar</string>
-    <string name="navigation_bar_height_title">Navigation bar height</string>
-    <string name="navigation_bar_height_summary">Navigation Bar height while in portrait</string>
-    <string name="navigation_bar_height_landscape_title">Navigation bar height landscape</string>
-    <string name="navigation_bar_height_landscape_summary">Navigation Bar height while in landscape</string>
-    <string name="navigation_bar_width_title">Navigation bar width</string>
-    <string name="navigation_bar_width_summary">Navigation Bar height if the bar is along a side</string>
-    <string name="navbar_reboot_title">Reboot</string>
-    <string name="navbar_reboot_message">Please reboot to apply changes</string>
-    <string name="navbar_reboot_yes">Reboot Now</string>
-    <string name="navbar_reboot_no">Reboot Later</string>
-
     <!-- Lock Screen Shortcuts -->
     <string name="lockscreen_target_info">Drag the slider to targets to assign shortcuts</string>
     <string name="lockscreen_target_title">Slider shortcuts</string>
@@ -4794,16 +4766,6 @@
     <string name="volbtn_music_controls_summary">When screen off, long-pressing the volume rockers will seek music tracks</string>
     <string name="volume_ring_only_description">Ringtone</string>
 
-    <!-- Navigation Bar #CM -->
-    <string name="navigation_bar_help_text">1 - To begin editing, tap the lock icon\n\n2 - Tap any button to assign or change functionality\n\n3 - Long press any button to rearrange the order\n\n4 - To save, tap the lock icon again\n\n5 - To restore system default, tap the reset button\n\n</string>
-    <string name="navigation_bar_tips">&#8226; Actions can only be assigned to one button at a time\n\n&#8226; The home button cannot be re-assigned\n\n&#8226; Side buttons cannot be rearranged</string>
-    <string name="navigation_bar_tips_title">Quick tips</string>
-    <string name="navigation_bar_reset_message">Delete current settings and restore to default?</string>
-    <string name="navigation_bar_save_message">Navigation bar settings saved</string>
-    <string name="navigation_bar_reset_toast">Navigation bar reset to default</string>
-    <string name="navigation_bar_menu_editable">Editable</string>
-    <string name="navigation_bar_menu_locked">Locked</string>
-
     <!-- Kill app long-press back -->
     <string name="kill_app_longpress_back">Kill app back button</string>
     <string name="kill_app_longpress_back_summary">Kill the foreground app by long-pressing the back key</string>
@@ -4951,8 +4913,7 @@
     <string name="hex_hint">#FF000000</string>
     <string name="set">Set</string>
     <string name="ics_color">!!!</string>
-    <string name="lockscreen_hide_initial_page_hints_summary">Set wether the hints for the left and right widgets are shown when the screen is turned on.</string>
-    <string name="lockscreen_hide_initial_page_hints_title">Hide initial page hints</string>
+    
     <string name="lockscreen_maximize_widgets_title">Maximize widgets</string>
     <string name="lockscreen_maximize_widgets_summary">Show widgets maximized and the unlock minimized when the screen is turned on</string>
 

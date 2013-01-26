@@ -1459,11 +1459,21 @@
 
         <activity android:name=".cyanogenmod.LockscreenInterface" />
         
+        <activity android:name=".cyanogenmod.LockscreenWidgets" />
+        
         <activity android:name=".cyanogenmod.StatusBar" />
 
         <activity android:name=".cyanogenmod.StatusBarBatteryStyle" />
         
         <activity android:name=".cyanogenmod.StatusBarClockStyle" />
+        
+        <activity android:name=".cyanogenmod.NavbarSettings" />
+        
+        <activity android:name=".cyanogenmod.NavRingTargets" />
+        
+        <activity android:name=".cyanogenmod.NavbarButtonSettings" />
+        
+        <activity android:name=".cyanogenmod.NavbarStyleDimenSettings" />
 
         <activity android:name=".cyanogenmod.PowerMenu" />
 

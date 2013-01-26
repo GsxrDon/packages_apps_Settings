@@ -1491,14 +1491,6 @@
         <activity android:name=".notificationlight.BatteryLightSettings" />
 
         <activity
-                android:label="@string/advanced_system_settings_title"
-                android:name=".projectelite.AdvancedSettings">
-            <intent-filter >
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-
-        <activity
                 android:label="@string/qs_title"
                 android:name=".TwinBlade.quicksettingscontrolpanel">
             <intent-filter >

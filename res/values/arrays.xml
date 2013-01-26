@@ -1491,7 +1491,7 @@
     </string-array>
 
     <string-array name="glow_times_values" translatable="false">
-        <item>100|10</item>
+        <item>0|0</item>
         <item>250|25</item>
         <item>500|50</item>
     </string-array>

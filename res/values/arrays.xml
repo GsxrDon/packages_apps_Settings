@@ -773,7 +773,7 @@
         <item>Always allow</item>
     </string-array>
 
-    <!-- **** CYANOGENMOD/PROJECT ELITE EDITS START **** -->
+    <!-- **** CYANOGENMOD/NEXUS EVOLUTION EDITS START **** -->
 
     <!-- Volume Overlay options. -->
     <string-array name="volume_overlay_entries">
@@ -805,7 +805,6 @@
         <item>mute</item>
     </string-array>
 
-
     <!-- Performance settings -->
     <string-array name="pref_zram_size_entries">
         <item>Disabled</item>
@@ -825,18 +824,6 @@
         <item>@string/dithering_no_dither</item>
         <item>@string/dithering_color_banding</item>
         <item>@string/dithering_blur_effect</item>
-    </string-array>
-
-    <string-array name="entries_status_bar_clock_style" translatable="false">
-        <item>Do not show the clock</item>
-        <item>Right clock (default)</item>
-        <item>Center clock</item>
-    </string-array>
-
-    <string-array name="values_status_bar_clock_style" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
     </string-array>
 
     <string-array name="dithering_values" translatable="false">
@@ -1058,36 +1045,6 @@
         <item>10000</item>
     </integer-array>
 
-    <string-array name="entries_status_bar_am_pm">
-        <item>Normal</item>
-        <item>Small</item>
-        <item>None</item>
-    </string-array>
-
-    
-
-    <string-array name="values_status_bar_am_pm" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-    </string-array>
-
-    <string-array name="entries_status_bar_battery" translatable="false">
-        <item>@string/status_bar_style_icon</item>
-        <item>@string/status_bar_battery_status_percentage</item>
-        <item>@string/status_bar_battery_status_circle</item>
-        <item>@string/status_bar_battery_status_circle_percentage</item>
-        <item>@string/status_bar_style_hidden</item>
-    </string-array>
-
-    <string-array name="values_status_bar_battery" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-    </string-array>
-
     <string-array name="entries_status_bar_signal" translatable="false">
         <item>@string/status_bar_style_icon</item>
         <item>@string/status_bar_signal_text_show_text</item>
@@ -1185,6 +1142,166 @@
     <string-array name="lockscreen_battery_status_values" translatable="false">
         <item>0</item>
         <item>1</item>
+    </string-array>
+    
+    <string-array name="clock_style_entries" translatable="false">
+        <item>@string/right_clock</item>
+        <item>@string/center_clock</item>
+    </string-array>
+
+    <string-array name="clock_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+    <string-array name="entries_status_bar_am_pm">
+        <item>Normal</item>
+        <item>Small</item>
+        <item>None</item>
+    </string-array>
+
+    <string-array name="values_status_bar_am_pm" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="clock_date_display_entries">
+        <item>Don\'t show</item>
+        <item>Small date</item>
+        <item>Regular date</item>
+    </string-array>
+
+    <string-array name="clock_date_display_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="clock_date_style_entries">
+        <item>Normal</item>
+        <item>Lowercase</item>
+        <item>Uppercase</item>
+    </string-array>
+
+    <string-array name="clock_date_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="clock_date_format_entries">
+        <item>dd/MM/yy</item>
+        <item>MM/dd/yy</item>
+        <item>yyyy-MM-dd</item>
+        <item>yyyy-dd-MM</item>
+        <item>dd-MM-yyyy</item>
+        <item>MM-dd-yyyy</item>
+        <item>MMM dd</item>
+        <item>MMM dd, yyyy</item>
+        <item>MMMM dd, yyyy</item>
+        <item>EEE</item>
+        <item>EEE dd</item>
+        <item>EEE dd/MM</item>
+        <item>EEE MM/dd</item>
+        <item>EEE dd MMM</item>
+        <item>EEE MMM dd</item>
+        <item>EEE MMMM dd</item>
+        <item>EEEE dd/MM</item>
+        <item>EEEE MM/dd</item>
+        <item>Custom java format</item>
+    </string-array>
+
+    <string-array name="clock_date_format_values">
+        <item>dd/MM/yy</item>
+        <item>MM/dd/yy</item>
+        <item>yyyy-MM-dd</item>
+        <item>yyyy-dd-MM</item>
+        <item>dd-MM-yyyy</item>
+        <item>MM-dd-yyyy</item>
+        <item>MMM dd</item>
+        <item>MMM dd, yyyy</item>
+        <item>MMMM dd, yyyy</item>
+        <item>EEE</item>
+        <item>EEE dd</item>
+        <item>EEE dd/MM</item>
+        <item>EEE MM/dd</item>
+        <item>EEE dd MMM</item>
+        <item>EEE MMM dd</item>
+        <item>EEE MMMM dd</item>
+        <item>EEEE dd/MM</item>
+        <item>EEEE MM/dd</item>
+        <item>Custom java format</item>
+    </string-array>
+
+    <string-array name="entries_status_bar_battery" translatable="false">
+        <item>@string/status_bar_style_icon</item>
+        <item>@string/status_bar_battery_status_percentage</item>
+        <item>@string/status_bar_battery_status_circle</item>
+        <item>@string/status_bar_battery_status_circle_percentage</item>
+        <item>@string/status_bar_battery_status_dotted_circle</item>
+        <item>@string/status_bar_style_hidden</item>
+    </string-array>
+
+    <string-array name="values_status_bar_battery" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+    <string-array name="circle_battery_animation_speed_entries" >
+        <item>@string/circle_battery_animation_speed_none</item>
+        <item>@string/circle_battery_animation_speed_slow</item>
+        <item>@string/circle_battery_animation_speed_stock</item>
+        <item>@string/circle_battery_animation_speed_fast</item>
+    </string-array>
+
+    <string-array name="circle_battery_animation_speed_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>3</item>
+        <item>5</item>
+    </string-array>
+    
+    <string-array name="battery_bar_entries">
+        <item>Hide</item>
+        <item>Statusbar</item>
+        <item>Top of navbar</item>
+        <item>Bottom of navbar</item>
+    </string-array>
+
+    <string-array name="battery_bar_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="battery_bar_style_entries">
+        <item>Regular</item>
+        <item>Center-mirrored</item>
+    </string-array>
+
+    <string-array name="battery_bar_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+    <string-array name="battery_bar_thickness_entries" translatable="false">
+        <item>1 dp</item>
+        <item>2 dp</item>
+        <item>3 dp</item>
+        <item>4 dp</item>
+    </string-array>
+
+    <string-array name="battery_bar_thickness_values" translatable="false">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
     </string-array>
 
 </resources>

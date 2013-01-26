@@ -1435,7 +1435,7 @@
             android:theme="@style/CryptKeeperBlankTheme"
         />
 
-        <!-- CyanogenMod/Project Elite activities Start -->
+        <!-- CyanogenMod/NexusEvolution activities Start -->
 
         <activity android:name=".cyanogenmod.SystemSettings" />
 
@@ -1458,8 +1458,12 @@
         <activity android:name=".cyanogenmod.LockscreenTargets" />
 
         <activity android:name=".cyanogenmod.LockscreenInterface" />
+        
+        <activity android:name=".cyanogenmod.StatusBar" />
 
-        <activity android:name=".cyanogenmod.SystemSettings" />
+        <activity android:name=".cyanogenmod.StatusBarBatteryStyle" />
+        
+        <activity android:name=".cyanogenmod.StatusBarClockStyle" />
 
         <activity android:name=".cyanogenmod.PowerMenu" />
 
@@ -1499,7 +1503,7 @@
             </intent-filter>
         </receiver>
 
-        <!-- CyanogenMod/ProjectElite activities End -->
+        <!-- CyanogenMod/NexusEvolution activities End -->
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
         <activity android:name="Settings$CryptKeeperSettingsActivity"

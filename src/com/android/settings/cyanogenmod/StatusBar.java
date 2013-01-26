@@ -16,7 +16,10 @@
 
 package com.android.settings.cyanogenmod;
 
+import android.content.ContentResolver;
+import android.database.ContentObserver;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -33,19 +36,18 @@ import com.android.settings.Utils;
 
 public class StatusBar extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
-    private static final String STATUS_BAR_AM_PM = "status_bar_am_pm";
-    private static final String STATUS_BAR_BATTERY = "status_bar_battery";
-    private static final String STATUS_BAR_CLOCK_STYLE = "status_bar_clock_style";
+    private static final String TAG = "StatusBar";
+
     private static final String STATUS_BAR_SIGNAL = "status_bar_signal";
     private static final String STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
     private static final String STATUS_BAR_CATEGORY_GENERAL = "status_bar_general";
+    private static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
 
-    private ListPreference mStatusBarClockStyle;
-    private ListPreference mStatusBarAmPm;
-    private ListPreference mStatusBarBattery;
     private ListPreference mStatusBarCmSignal;
     private CheckBoxPreference mStatusBarNotifCount;
+    private PreferenceScreen mClockStyle;
     private PreferenceCategory mPrefCategoryGeneral;
+    private CheckBoxPreference mStatusBarBrightnessControl;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,38 +57,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
 
         PreferenceScreen prefSet = getPreferenceScreen();
 
-        mStatusBarClockStyle = (ListPreference) prefSet.findPreference(STATUS_BAR_CLOCK_STYLE);
-        mStatusBarAmPm = (ListPreference) prefSet.findPreference(STATUS_BAR_AM_PM);
-        mStatusBarBattery = (ListPreference) prefSet.findPreference(STATUS_BAR_BATTERY);
         mStatusBarCmSignal = (ListPreference) prefSet.findPreference(STATUS_BAR_SIGNAL);
-
-        try {
-            if (Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.TIME_12_24) == 24) {
-                mStatusBarAmPm.setEnabled(false);
-                mStatusBarAmPm.setSummary(R.string.status_bar_am_pm_info);
-            }
-        } catch (SettingNotFoundException e ) {
-        }
-
-        int statusBarClockStyle = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
-                Settings.System.STATUS_BAR_CLOCK_STYLE, 1);
-        mStatusBarClockStyle.setValue(String.valueOf(statusBarClockStyle));
-        mStatusBarClockStyle.setSummary(mStatusBarClockStyle.getEntry());
-        mStatusBarClockStyle.setOnPreferenceChangeListener(this);
-
-        int statusBarAmPm = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
-                Settings.System.STATUS_BAR_AM_PM, 2);
-        mStatusBarAmPm.setValue(String.valueOf(statusBarAmPm));
-        mStatusBarAmPm.setSummary(mStatusBarAmPm.getEntry());
-        mStatusBarAmPm.setOnPreferenceChangeListener(this);
-
-        int statusBarBattery = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
-                Settings.System.STATUS_BAR_BATTERY, 0);
-        mStatusBarBattery.setValue(String.valueOf(statusBarBattery));
-        mStatusBarBattery.setSummary(mStatusBarBattery.getEntry());
-        mStatusBarBattery.setOnPreferenceChangeListener(this);
-
         int signalStyle = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.STATUS_BAR_SIGNAL_TEXT, 0);
         mStatusBarCmSignal.setValue(String.valueOf(signalStyle));
@@ -97,36 +68,43 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusBarNotifCount.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.STATUS_BAR_NOTIF_COUNT, 0) == 1));
 
+        mStatusBarBrightnessControl = (CheckBoxPreference) findPreference(STATUS_BAR_BRIGHTNESS_CONTROL);
+        mStatusBarBrightnessControl.setChecked((Settings.System.getInt(
+                getActivity().getContentResolver(),
+                Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, 0) == 1));
+
+        try {
+            if (Settings.System.getInt(getActivity().getContentResolver(),
+                    Settings.System.SCREEN_BRIGHTNESS_MODE) == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC) {
+                mStatusBarBrightnessControl.setEnabled(false);
+                mStatusBarBrightnessControl.setSummary(R.string.status_bar_toggle_info);
+            }
+        } catch (SettingNotFoundException e) {
+        }
+
         mPrefCategoryGeneral = (PreferenceCategory) findPreference(STATUS_BAR_CATEGORY_GENERAL);
 
         if (Utils.isWifiOnly(getActivity())) {
             mPrefCategoryGeneral.removePreference(mStatusBarCmSignal);
         }
-    }
+
+        if (Utils.isTablet(getActivity())) {
+            mPrefCategoryGeneral.removePreference(mStatusBarBrightnessControl);
+        }
+
+        mClockStyle = (PreferenceScreen) prefSet.findPreference("clock_style_pref");
+        if (mClockStyle != null) {
+            updateClockStyleDescription();
+        }
+
+        if (Utils.isTablet(getActivity())) {
+            getPreferenceScreen().removePreference(mStatusBarBrightnessControl);
+		}
+	}
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mStatusBarClockStyle) {
-            int statusBarClockStyle = Integer.valueOf((String) newValue);
-            int index = mStatusBarClockStyle.findIndexOfValue((String) newValue);
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.STATUS_BAR_CLOCK_STYLE, statusBarClockStyle);
-            mStatusBarClockStyle.setSummary(mStatusBarClockStyle.getEntries()[index]);
-            return true;
-        } else if (preference == mStatusBarAmPm) {
-            int statusBarAmPm = Integer.valueOf((String) newValue);
-            int index = mStatusBarAmPm.findIndexOfValue((String) newValue);
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.STATUS_BAR_AM_PM, statusBarAmPm);
-            mStatusBarAmPm.setSummary(mStatusBarAmPm.getEntries()[index]);
-            return true;
-        } else if (preference == mStatusBarBattery) {
-            int statusBarBattery = Integer.valueOf((String) newValue);
-            int index = mStatusBarBattery.findIndexOfValue((String) newValue);
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.STATUS_BAR_BATTERY, statusBarBattery);
-            mStatusBarBattery.setSummary(mStatusBarBattery.getEntries()[index]);
-            return true;
-        } else if (preference == mStatusBarCmSignal) {
+        boolean result = false;
+        if (preference == mStatusBarCmSignal) {
             int signalStyle = Integer.valueOf((String) newValue);
             int index = mStatusBarCmSignal.findIndexOfValue((String) newValue);
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
@@ -145,7 +123,27 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.STATUS_BAR_NOTIF_COUNT, value ? 1 : 0);
             return true;
+        } else if (preference == mStatusBarBrightnessControl) {
+            value = mStatusBarBrightnessControl.isChecked();
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, value ? 1 : 0);
+            return true;
         }
-        return false;
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
+    }
+
+    private void updateClockStyleDescription() {
+        if (Settings.System.getInt(getActivity().getContentResolver(),
+               Settings.System.STATUS_BAR_CLOCK, 1) == 1) {
+            mClockStyle.setSummary(getString(R.string.clock_enabled));
+        } else {
+            mClockStyle.setSummary(getString(R.string.clock_disabled));
+         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateClockStyleDescription();
     }
 }

@@ -4786,25 +4786,88 @@
     <string name="ime_switcher_notify">Selector notification</string>
     <string name="ime_switcher_notify_summary">Display input method selector notification</string>
 
+    <!-- Status bar -->
     <string name="status_bar_title">Status bar</string>
-    <string name="status_bar_clock_title">Clock</string>
     <string name="status_bar_general_title">General</string>
-    <string name="status_bar_clock_style_title">Clock style</string>
-    <string name="status_bar_am_pm_title">AM/PM style</string>
-    <string name="status_bar_am_pm_info">24-hour clock is enabled</string>
-    <string name="status_bar_battery_title">Battery status style</string>
+    <string name="status_bar_style_title">Style</string>
     <string name="status_bar_signal_text_title">Signal status style</string>
     <string name="status_bar_style_icon">Icon</string>
     <string name="status_bar_style_hidden">Hidden</string>
     <string name="status_bar_signal_text_show_text">Text</string>
+
+    <!-- Status bar | Clock -->
+    <string name="status_bar_clock">Clock and date</string>
+    <string name="status_bar_clock_title">Clock and date style</string>
+    <string name="clock_title_enable">Clock alignment</string>
+    <string name="clock_enabled">Enabled</string>
+    <string name="clock_disabled">Disabled</string>
+    <string name="clock_color_title">Clock color</string>
+    <string name="status_bar_show_clock_title">Show clock</string>
+    <string name="status_bar_am_pm_title">AM/PM style</string>
+    <string name="status_bar_am_pm_info">24-hour clock is enabled</string>
+    <string name="enable_clock_weekday">Day of the week</string>
+    <string name="enable_clock_weekday_summary">Abbreviated day of the week before the time</string>
+    <string name="right_clock">Right clock</string>
+    <string name="center_clock">Center clock</string>
+    <string name="dont_show">Don\'t show</string>
+    <string name="clock_date_display">Date</string>
+    <string name="clock_date_display_summary">Display custom date before the clock</string>
+    <string name="clock_date_style">Date style</string>
+    <string name="clock_date_format">Date format</string>
+    <string name="clock_date_string_edittext_title">Must be in DateFormat eg. MM/dd/yy</string>
+    <string name="clock_date_string_edittext_summary">Enter string</string>
+    <string name="status_bar_toggle_brightness">Brightness control</string>
+    <string name="status_bar_toggle_brightness_summary">Adjust brightness by sliding across status bar</string>
+    <string name="status_bar_toggle_info">Automatic brightness is enabled</string>
+
+    <!-- Color Picker -->
+    <string name="dialog_color_picker">Color Picker</string>
+    <string name="press_color_to_apply">Press on Color to apply</string>
+    <string name="arrow_right">→</string>
+    <string name="arrow_down">↓</string>
+    <string name="hex">Hex:</string>
+    <string name="hex_hint">#FF000000</string>
+    <string name="set">Set</string>
+    <string name="ics_color">Holo</string>
+
+    <!-- Battery Icon and Bar -->
+    <string name="status_bar_battery_icon_bar_title">Battery icon and bar style</string>
+    <string name="battery_icon_cat">Battery icon style</string>
+    <string name="status_bar_battery_title">Battery icon style</string>
     <string name="status_bar_battery_status_percentage">Percentage</string>
     <string name="status_bar_battery_status_circle">Circle</string>
     <string name="status_bar_battery_status_circle_percentage">Circle with percentage</string>
-
+    <string name="status_bar_battery_status_dotted_circle">Dotted Circle with percentage</string>
+    <string name="circle_battery_color">Circle color</string>
+    <string name="circle_battery_text_color">Circle text color</string>
+    <string name="circle_battery_animation_speed">Circle animation speed</string>
+    <string name="circle_battery_animation_speed_none">None</string>
+    <string name="circle_battery_animation_speed_slow">Slow</string>
+    <string name="circle_battery_animation_speed_stock">Normal</string>
+    <string name="circle_battery_animation_speed_fast">Fast</string>
+    <string name="circle_battery_reset_title">Reset circle colors</string>
+    <string name="circle_battery_reset_summary">Reset circle colors to apply installed theme engine colors</string>
+    <string name="battery_bar">Battery bar location</string>
+    <string name="battery_bar_color">Battery bar color</string>
+    <string name="battery_bar_cat">Battery bar style</string>
+    <string name="battery_bar_style_title">Battery bar alignment</string>
+    <string name="battery_bar_thickness_title">Battery bar thickness</string>
+    <string name="battery_bar_animate_title">Charging animation</string>
+    <string name="battery_bar_animate_summary">The charging animation may result in a poor user experience. Enable at your own discretion.</string>
+    
     <!-- Status bar notification count -->
     <string name="status_bar_notif_count_title">Show notification count</string>
     <string name="status_bar_notif_count_summary">Display number of pending notifications</string>
 
+    <!-- General Settings -->
+    <string name="title_slim_general">General</string>
+    <string name="display_short">Display</string>
+    <string name="misc_short">Misc</string>
+    <string name="alt_resolver">Alt Default App Grid</string>
+    <string name="alt_resolver_summary">Use Alternate Default App Picker</string>
+    <string name="dual_pane">Tablet dual panel mode</string>
+    <string name="dual_pane_summary">Restart settings to take effect</string>
+    
     <!-- Wakeup options -->
     <string name="display_category_wakeup_options_title">Wakeup options</string>
     <string name="pref_volume_wake_title">Volume rocker wake</string>
@@ -4819,8 +4882,6 @@
     <string name="volume_key_cursor_control_off">Disabled</string>
     <string name="volume_key_cursor_control_on">Volume up/down moves cursor left/right</string>
     <string name="volume_key_cursor_control_on_reverse">Volume up/down moves cursor right/left</string>
-
-    <!-- **** CYANOGENMOD ADDITIONS END **** -->
 
     <string name="advanced_system_settings_title">Advanced options</string>
     <string name="spareparts_settings_title">Spare Parts settings</string>
@@ -4903,22 +4964,8 @@
     <string name="icon_picker_system_icons_title">System icons</string>
     <string name="icon_picker_gallery_title">Gallery</string>
     <string name="icon_picker_pack_title">Icon pack</string>
-
-    <!-- Color Picker -->
-    <string name="dialog_color_picker">Color Picker</string>
-    <string name="press_color_to_apply">Press on Color to apply</string>
-    <string name="arrow_right">→</string>
-    <string name="arrow_down">↓</string>
-    <string name="hex">Hex:</string>
-    <string name="hex_hint">#FF000000</string>
-    <string name="set">Set</string>
-    <string name="ics_color">!!!</string>
     
     <string name="lockscreen_maximize_widgets_title">Maximize widgets</string>
     <string name="lockscreen_maximize_widgets_summary">Show widgets maximized and the unlock minimized when the screen is turned on</string>
-
-   <!-- MultiPanel Views -->
-   <string name="multipane_ui">Enable/Disable Dual panel</string>
-   <string name="multipane_ui_summary">This will Enable/Disable Dual panel view (Reboot Required!)</string>
 
 </resources>
